@@ -4,7 +4,7 @@ const ProductsList = ({ products }) => {
   return (
     <div style={{ display: "flex", flexWrap: "wrap" }}>
       {products.map((product) => (
-        <Product product={product} />
+        <Product key={product.id} product={product} />
       ))}
     </div>
   );
