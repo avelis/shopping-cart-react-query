@@ -26,7 +26,7 @@ const App = () => {
             padding: "10px",
           }}
         >
-          <ShoppingCart cart={cart} />
+          <ShoppingCart cart={cart} products={products} />
         </div>
       </div>
     </div>
