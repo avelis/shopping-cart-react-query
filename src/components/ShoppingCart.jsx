@@ -1,3 +1,5 @@
+import { formatPrice } from "../utils/formatPrice";
+
 const ShoppingCart = ({ cart, products }) => {
   if (!products.length) {
     return;
@@ -35,17 +37,17 @@ const ShoppingCart = ({ cart, products }) => {
           {cartWithDetails.map((item) => (
             <tr key={item.productId}>
               <td style={{ paddingRight: "20px" }}>
-                {item.productName} (${item.productPrice})
+                {item.productName} ({formatPrice(item.productPrice)})
               </td>
               <td>{item.quantity}</td>
-              <td>${item.totalProductPrice}</td>
+              <td>{formatPrice(item.totalProductPrice)}</td>
             </tr>
           ))}
         </tbody>
         <tfoot>
           <tr>
             <th colSpan={3} style={{ textAlign: "right", paddingTop: "10px" }}>
-              Total price: ${totalCartPrice}
+              Total price: {formatPrice(totalCartPrice)}
             </th>
           </tr>
         </tfoot>
