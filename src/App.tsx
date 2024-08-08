@@ -27,12 +27,14 @@ const App = () => {
     );
 
     if (isProductInCart) {
-      cart.map((cartProduct) => {
-        if (cartProduct.productId === product.id) {
-          cartProduct.quantity += 1;
-        }
-      });
-      setCart([...cart]);
+      setCart(
+        cart.map((cartProduct) => {
+          if (cartProduct.productId === product.id) {
+            cartProduct.quantity += 1;
+          }
+          return cartProduct;
+        })
+      );
     } else {
       let cartProduct: CartProduct = { productId: product.id, quantity: 1 };
       setCart([...cart, cartProduct]);
